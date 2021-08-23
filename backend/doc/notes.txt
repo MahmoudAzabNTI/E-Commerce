@@ -1,0 +1,25 @@
+users
+    name, email, password, phone, gender, address=> [], image, status,
+products =>     
+posts 
+    content, image, video, userId,
+ userRoles => Edit Delete 
+
+- register user (encrypt password, send activation email) => name, email, password, gender, ==> done
+- login user (email, password)
+- add profile iamge
+- logout user
+- activate
+- deactivate
+- edit password logged in 
+- edit password without login (to email)
+- remove account
+- add posts
+- edit post
+- add friend
+- show all friends
+- show time line
+- show single post
+- add post comment
+- like / dislike post
+       

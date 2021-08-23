@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "3462c629-9208-450d-8ecb-3e39e9f8a125",
+		"name": "MEAN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SocailG9",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"mahmoud\",\r\n    \"email\": \"mahmoud1@gmail.com\",\r\n    \"password\": \"MahmoudAzab@345\",\r\n    \"phone\": \"01123563373\",\r\n    \"gender\": \"male\",\r\n    \"addresses\":[\r\n        {\r\n            \"address\":{\r\n                \"addrType\": \"maadie\",\r\n                \"addrDetails\": \"Dar el salam\"\r\n            }\r\n        }\r\n    ]\r\n\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"mahmoud1@gmail.com\",\r\n    \"password\": \"MahmoudAzab@345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "activate user",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/auth/activate/61211ce66be3ed26b0dc7dd2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"activate",
+										"61211ce66be3ed26b0dc7dd2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "tasks",
+					"item": [
+						{
+							"name": "add task",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFlMWI0YTI2YzUzZTQ4ZTQzNjA1NTYiLCJpYXQiOjE2MjkzNzMwNDB9.Od3kfV5LVnBRBV-x7LD6aIWPr0Gz6e2B4xTJew7jS30",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"task2\",\r\n    \"content\": \"content2\",\r\n    \"dueDate\": \"2021-08-21\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/task/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"task",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show all tasks",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"title\": \"task1 edit\",\r\n    \"content\": \"content1 edit\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/task/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"task",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show single task",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/task/611ebcdb95de5f455c1d2a31",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"task",
+										"611ebcdb95de5f455c1d2a31"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "edit task",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"dueDate\": \"2021-08-22\"\r\n\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/task/611ebcdb95de5f455c1d2a31",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"task",
+										"611ebcdb95de5f455c1d2a31"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete task",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"dueDate\": \"2021-08-22\"\r\n\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/task/611ebcdb95de5f455c1d2a31",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"task",
+										"611ebcdb95de5f455c1d2a31"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "show all users",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTIxMWNlNjZiZTNlZDI2YjBkYzdkZDIiLCJpYXQiOjE2Mjk1NjAwNTV9.Ei83qSMA3gCAFUs0XQydHVY3Efx3ySMaGdHpaSHyaog",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/user/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"user",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "profile image",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTIxMmIyMzAyZGFlYzUyMDBhZGMwMDgiLCJpYXQiOjE2Mjk1Njg2NjJ9.1Bau3sCPaNsWNJNNK_icGX7vRCGVR9MliplvhVP_VZ4",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/gener/OneDrive/Pictures/image.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/user/profile",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"user",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logged user",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTIxMmIyMzAyZGFlYzUyMDBhZGMwMDgiLCJpYXQiOjE2Mjk1Njg2NjJ9.1Bau3sCPaNsWNJNNK_icGX7vRCGVR9MliplvhVP_VZ4",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/auth/me",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"me"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
