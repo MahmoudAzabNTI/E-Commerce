@@ -6,6 +6,9 @@ const sendActivationEmail = (receiveEmail, textEmail) => {
             auth:{
                 user:"marwaradwan666@gmail.com",
                 pass:"123@Techs"
+            },
+            tls: {
+                rejectUnauthorized: false
             }
         }
         const transporter = nodemailer.createTransport(stmpConfig)
