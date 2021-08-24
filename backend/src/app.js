@@ -5,6 +5,7 @@ const publicFiles = path.join(__dirname, '/public')
 const authRoute = require('../routes/auth.route')
 const userRoure = require('../routes/user.route')
 const routeProduct=require('../routes/router.product')
+const categoryRoutes = require('../routes/category.routes')
 const app = express();
 
 
@@ -15,5 +16,6 @@ app.use(express.static(publicFiles))
 app.use('/auth', authRoute)
 app.use('/user', userRoure)
 app.use(routeProduct)
+app.use(categoryRoutes)
 
 module.exports = app;
