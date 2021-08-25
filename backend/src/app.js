@@ -3,8 +3,8 @@ const express = require('express');
 const path = require('path');
 const publicFiles = path.join(__dirname, '/public')
 const authRoute = require('../routes/auth.route')
-const userRoure = require('../routes/user.route')
-const routeProduct=require('../routes/router.product')
+const userRoure = require('../routes/user.routes')
+const routeProduct=require('../routes/product.routes')
 const categoryRoutes = require('../routes/category.routes')
 const app = express();
 

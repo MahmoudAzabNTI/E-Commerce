@@ -1,14 +1,9 @@
-const express=require('express')
-const router=new express.Router()
-const response=require('../app/helpers/response.helper')  //done//
-const Product=require('../app/models/product.model') //done//
+const Product=require('../models/product.model')
+const response=require('../helpers/response.helper')
 var QRCode = require('qrcode')
- 
-const upload=require('../app/middlewares/upload-file')  //done//
-const { Mongoose } = require('mongoose')
-
-
-router.post('/addProduct',async(req,res)=>{
+const Category = require('../models/category.model')
+const upload=require('../middlewares/upload-file')
+const addProduct=async(req,res)=>{
     
     try{
         let insertProduct= new Product(req.body)
@@ -23,9 +18,9 @@ router.post('/addProduct',async(req,res)=>{
         const back=response(false,e.message,"there is not found")
         res.send(back)
     }
-})
+}
 
-router.post('/deleteProduct/:id',async(req,res)=>{
+const deleteProduct=async(req,res)=>{
     id=req.params.id
     try{
         const data=await Product.findByIdAndDelete(id)
@@ -42,9 +37,8 @@ router.post('/deleteProduct/:id',async(req,res)=>{
         const back=response(false,e.message,"error in delete")
         res.status(500).send(back)
     }
-})
-
-router.post('/editProduct/:id',async(req,res)=>{
+}
+const editProduct=async(req,res)=>{
     id=req.params.id
     try{
         const data=await Product.findByIdAndUpdate(id,req.body,{new:true})
@@ -59,9 +53,9 @@ router.post('/editProduct/:id',async(req,res)=>{
         const back=response(false,e.message,"error in delete")
         res.status(500).send(back)
     }
-})
+}
 
-router.get('/showAll',async(req,res)=>{
+const showAll=async(req,res)=>{
     try{
     const data=await Product.find()
     if(!data){
@@ -75,9 +69,8 @@ router.get('/showAll',async(req,res)=>{
     const back=response(false,e.message,"error in delete")
     res.status(500).send(back)
     }
-})
-
-router.get('/showOne/:id',async(req,res)=>{
+}
+const showOne=async(req,res)=>{
     id=req.params.id;
     try{
         const data=await Product.findById(id)
@@ -93,8 +86,8 @@ router.get('/showOne/:id',async(req,res)=>{
         const back=response(false,e.message,"error in delete")
         res.status(500).send(back)
     }
-})
-router.post('/profile/:id', upload.array('images', 4),async (req,res)=>{
+}
+const imgs=async (req,res)=>{
     console.log(req.body.userId)
     const data=await Product.findById(req.params.id)
     req.files.forEach(file=>{
@@ -102,6 +95,25 @@ router.post('/profile/:id', upload.array('images', 4),async (req,res)=>{
     })
     await data.save()
     res.send('okey')
-} )
+} 
 
-module.exports=router
+const showINcat= async(req,res)=>{
+    id=req.params.id
+    try{
+        let data=await Category.findById(id)
+       if(!data) throw new Error("this category is not found ")
+      await data.populate({
+           path:"catagoryProduct"
+           
+      
+       }).execPopulate()
+       const back=response(true,data.catagoryProduct,"this all product in category")
+        res.status(200).send(back)
+       
+    }
+    catch(e){
+        const back=response(false,e.message,"error in show in category")
+        res.status(500).send(back)
+    }
+}
+module.exports={addProduct,deleteProduct,editProduct,showAll,showOne,imgs,showINcat}
