@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
             type: String,
             required: true,
             trim: true,
-            match: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/,
+            //match: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/,
             min: 5,
             validate(value){
                 if(value.toLowerCase().includes('pass') || value.toLowerCase().includes('abs') || value.includes('123')) throw new Error("password is week")
