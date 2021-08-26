@@ -8,12 +8,13 @@ const orderRoute = require('../routes/order.route')
 const routeProduct=require('../routes/product.routes')
 const categoryRoutes = require('../routes/category.routes')
 const app = express();
-
+const cors = require("cors")
 
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(express.static(publicFiles))
+app.use(cors())
 app.use('/auth', authRoute)
 app.use('/user', userRoure)
 app.use('/order', orderRoute)
