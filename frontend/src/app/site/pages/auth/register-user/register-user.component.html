@@ -1,1 +1,26 @@
-<p>register-user works!</p>
+<div class="container mt-5 mb-5">
+    <div class="row d-flex align-items-center justify-content-center">
+        <div class="col-md-6">
+            <div class="card px-5 py-5"> 
+                <h5 class="text-center">Register Form</h5>
+                <form [formGroup]="registerForm"  action="" method="post" (ngSubmit)="signUp()">
+                    <div class="form-input"> <i class="fa fa-user"></i> <input type="text" class="form-control" placeholder="User name" formControlName="name"> </div>
+                    <div class="form-input"> <i class="fa fa-envelope"></i> <input type="email" class="form-control" placeholder="Email Address" formControlName="email"> </div>
+                    <div class="form-input"> <i class="fa fa-lock"></i> <input type="password" class="form-control" placeholder="password" formControlName="password"></div>
+                    <div class="form-input"> <i class="fa fa-check"></i> 
+                        <select class="form-select form-control" name="gender" formControlName="gender">   
+                            <option selected disabled>Choose Gender</option>
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary mt-4 signup">Sign Up</button>
+                </form>
+                
+                <div class="text-center mt-3"> <span>Or continue with these social profile</span> </div>
+                <div class="d-flex justify-content-center mt-4"> <span class="social"><i class="fa fa-google"></i></span> <span class="social"><i class="fa fa-facebook"></i></span> <span class="social"><i class="fa fa-twitter"></i></span> <span class="social"><i class="fa fa-linkedin"></i></span> </div>
+                <div class="text-center mt-4"> <span>Already a user?</span> <a href="#" class="text-decoration-none" [routerLink]="['/auth','login']">Login</a> </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,14 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { AppRoutingModule } from './app-routing.module';
+import { AlertModule } from 'ngx-bootstrap/alert';
+
 import { AppComponent } from './app.component';
 import { AllUsersComponent } from './admin/pages/users/all-users/all-users.component';
 import { SingleUserComponent } from './admin/pages/users/single-user/single-user.component';
 import { AddUserComponent } from './admin/pages/users/add-user/add-user.component';
-import { RegisterUserComponent } from './site/pages/auth/register-user/register-user.component';
-import { LoginUserComponent } from './site/pages/auth/login-user/login-user.component';
-import { LoginAdminComponent } from './adminpages/auth/login-admin/login-admin.component';
+import { LoginAdminComponent } from './admin/pages/auth/login-admin/login-admin.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ProfileComponent } from './site/pages/profile/profile.component';
+import { UserInterceptor } from './site/interceptors/user.interceptor';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
@@ -16,15 +25,26 @@ import { LoginAdminComponent } from './adminpages/auth/login-admin/login-admin.c
     AllUsersComponent,
     SingleUserComponent,
     AddUserComponent,
-    RegisterUserComponent,
-    LoginUserComponent,
-    LoginAdminComponent
+    LoginAdminComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TooltipModule.forRoot(),
+    ButtonsModule.forRoot(),
+    AccordionModule.forRoot(),
+    AlertModule,
+    HttpClientModule,
+  
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: UserInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

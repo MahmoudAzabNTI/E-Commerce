@@ -128,7 +128,7 @@ userSchema.statics.findByCredintials = async(email, pass) => {
     if(!user) throw new Error ('invaild email')
     const isValidPass = bcrypt.compare(pass, user.password);
     if(!isValidPass) throw new Error ('invaild passord')
-    if(user.tokens.length >= 5) throw new Error("executed number of logines")
+    if(user.tokens.length >= 1000) throw new Error("executed number of logines")
     return user;
 }
 userSchema.methods.generateToken = async function(){
