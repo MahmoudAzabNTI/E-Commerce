@@ -1,0 +1,47 @@
+
+<div class="container">
+    <h2 class="text-center bg-primary text-white mb-5 mt-3 p-2">product</h2>
+<dl class="row ">
+    <div class=" d-flex p-2 bg-success">
+  <dt class="col-sm-3 text-white text-end ">DateCreated</dt>
+  <dd class="col-sm-9 text-white text-center">{{mydata.dateCreated|date:'long'}}</dd>
+</div>
+<div class=" d-flex p-2 bg-info">
+    <dt class="col-sm-3 text-white text-end ">product_id</dt>
+    <dd class="col-sm-9 text-white text-center">{{mydata._id}}</dd>
+</div>
+ 
+  <div class=" d-flex p-2 bg-info">
+    <dt class="col-sm-3 text-white text-end ">categoryId</dt>
+  <dd class="col-sm-9 text-white text-center">{{mydata.categoryId}}</dd>
+  </div>
+
+  <div class=" d-flex p-2 bg-info">
+    <dt class="col-sm-3 text-white text-end ">product Name</dt>
+    <dd class="col-sm-9 text-white text-center">{{mydata.name}}</dd>
+  </div>
+
+
+<div class=" d-flex p-2 bg-info">
+    <dt class="col-sm-3 text-white text-end ">product Price</dt>
+  <dd class="col-sm-9 text-white text-center">{{mydata.price}}</dd>
+</div>
+  
+<div class=" d-flex p-2 bg-info">
+    <dt  class="col-sm-3 text-white text-end ">description</dt>
+    <dd class="col-sm-9 text-white text-center">{{mydata.description}}</dd>
+</div>
+
+<div class=" d-flex p-2 bg-info">
+    <dt class="col-sm-3 text-white text-end ">number of modified</dt>
+    <dd class="col-sm-9 text-white text-center">{{mydata.__v}}</dd>
+</div>
+ 
+<div class=" d-flex p-2 bg-success ">
+    <dt class="col-sm-5 text-white text-center mt-4 ">QR Code</dt>
+    <dd class="col-sm-7 text-white text-center">{{mydata.qr}}</dd>
+</div>
+
+ 
+</dl>
+</div>

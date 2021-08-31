@@ -17,6 +17,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProfileComponent } from './site/pages/profile/profile.component';
 import { UserInterceptor } from './site/interceptors/user.interceptor';
 import { RouterModule } from '@angular/router';
+import { AllproductComponent } from './products/allproduct/allproduct.component';
+import { AddproductComponent } from './products/addproduct/addproduct.component';
+import { SingleComponent } from './products/single/single.component';
 
 
 @NgModule({
@@ -26,7 +29,10 @@ import { RouterModule } from '@angular/router';
     SingleUserComponent,
     AddUserComponent,
     LoginAdminComponent,
-    ProfileComponent
+    ProfileComponent,
+    AllproductComponent,
+    AddproductComponent,
+    SingleComponent
   ],
   imports: [
     BrowserModule,

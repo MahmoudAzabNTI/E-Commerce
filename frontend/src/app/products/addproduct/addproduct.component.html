@@ -1,0 +1,32 @@
+
+<form class="m-5" #myform="ngForm" (ngSubmit)="handel(myform)">
+    <div class="alert alert-danger" *ngIf="!flag">{{message}}</div>
+    <div class="mb-3">
+        <label  class="form-label text-primary">categoryId</label>
+        <input name="categoryId" type="name" class="form-control" required minlength="4" maxlength="25" ngModel #id="ngModel">
+        <div class="alert alert-danger" *ngIf="id.invalid&&id.dirty&&myform.submitted">this is not valid</div>
+      </div>
+      <div class="mb-3">
+        <label  class="form-label text-primary">Name</label>
+        <input name="name" type="name" class="form-control" ngModel required minlength="4"  #name="ngModel">
+        <div class="alert alert-danger" *ngIf="name.invalid&&name.dirty&&myform.submitted">name fourth </div>
+        </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label text-primary">description</label>
+      <input  name='description' type="email" class="form-control" minlength="10" maxlength="200"unique required ngModel >
+      <div class="alert alert-danger" *ngIf="name.invalid&&name.dirty&&myform.submitted">name fourth </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label text-primary">Price</label>
+      <input name="price" type="number" class="form-control" required min="0" max="100000" ngModel #price="ngModel">
+      <div class="alert alert-danger" *ngIf="price.errors?.min&&myform.submitted">the price not correct</div>
+      <div class="alert alert-danger" *ngIf="price.errors?.max&&myform.submitted">the price maxiumam</div>
+    </div>
+    
+    <div class=" mb-5 mt-5">
+        <input name="images" type="file" class="file-upload" class="form-control" ngModel >
+    
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
