@@ -1,0 +1,30 @@
+<div class="container my-3">
+    <h2 class="text-center text-white mb-5  border-3 bg-success ">All catogery</h2>
+  
+    <button class="btn btn-success mb-3" routerLink="/admin/addcat">add catogery</button>
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border table table-bordered border-dark hover">
+      <thead>
+        <tr class="bg-primary text-white">
+          <th>ID</th>
+          <th>Name</th>
+          <th>color</th>
+          
+          <th>action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-ligth " *ngFor="let person of allcategory;let i=index"  routerLink="/admin/single/{{person._id}}">
+          <td>{{ person._id }}</td>
+          <td>{{ person.name }}</td>
+          <td>{{ person.color }}</td>
+         
+          <td>
+             <button class="btn btn-danger" (click)="delet(person,i)">delete</button>
+             <button class="btn btn-success" routerLink="/admin/editcat/{{person._id}}">edit</button>
+            <button class="btn btn-warning">show</button>  
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    </div>

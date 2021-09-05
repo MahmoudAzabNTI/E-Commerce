@@ -20,7 +20,7 @@ export class AddproductComponent implements OnInit {
         this.message=data[0].message
        
         if(!data[0].apiStatus) this.flag=false
-        else this._route.navigateByUrl('')
+        else this._route.navigateByUrl('admin/allProduct')
       }
     )
     }

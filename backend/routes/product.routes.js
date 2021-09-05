@@ -10,18 +10,18 @@ const authorz=require('../app/middlewares/authorization')
 
 
 
-router.post('/addProduct',auth,authorz,proController.addProduct)
+router.post('/addProduct',proController.addProduct)
 
-router.post('/deleteProduct/:id',auth,authorz,proController.deleteProduct)
+router.post('/deleteProduct/:id',proController.deleteProduct)
 
-router.post('/editProduct/:id',auth,authorz,proController.editProduct)
+router.post('/editProduct/:id',proController.editProduct)
 
 router.get('/showAll',proController.showAll)
 
 router.get('/showOne/:id',proController.showOne)
 router.post('/profile/:id', auth,authorz,upload.array('images', 4),proController.imgs)
 
-router.get('/productsInCategory/:id',auth,authorz,proController.showINcat )
+router.get('/productsInCategory/:id',proController.showINcat )
 // router.get('/myPosts/:id', async(req,res)=>{
 //     id=req.params.id
 //     try{

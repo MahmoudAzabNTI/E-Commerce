@@ -4,11 +4,11 @@ const upload = require('../app/middlewares/upload-file2')
 const auth=require('../app/middlewares/auth')
 const authorz=require('../app/middlewares/authorization')
 
-router.post('/addCategory',auth,authorz,catController.addCategory )
-router.get('/showAll/', catController.getAllCat)
-router.delete('deleteCategory/:id',auth,authorz, catController.delCategory)
+router.post('/addCategory',catController.addCategory )
+router.get('/show', catController.getAllCat)
+router.delete('/deleteCategory/:id', catController.delCategory)
 router.get('/showOneCategory/:id', catController.getSingCat) 
-router.patch('/editCategory/:id', auth,authorz,catController.editCategory)
+router.post('/editCategory/:id', catController.editCategory)
 
 router.post('/upload/:catId',  auth,authorz,upload.single('upload'),catController.upload)
 

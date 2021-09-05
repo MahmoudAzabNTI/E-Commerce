@@ -20,7 +20,12 @@ import { RouterModule } from '@angular/router';
 import { AllproductComponent } from './products/allproduct/allproduct.component';
 import { AddproductComponent } from './products/addproduct/addproduct.component';
 import { SingleComponent } from './products/single/single.component';
-
+import { EditComponent } from './products/edit/edit.component';
+import { DataTablesModule } from 'angular-datatables';
+import { AllcatComponent } from './category/allcat/allcat.component';
+import { AddcatComponent } from './category/addcat/addcat.component';
+import { EditcatComponent } from './category/editcat/editcat.component';
+import { OneComponent } from './category/one/one.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,12 @@ import { SingleComponent } from './products/single/single.component';
     ProfileComponent,
     AllproductComponent,
     AddproductComponent,
-    SingleComponent
+    SingleComponent,
+    EditComponent,
+    AllcatComponent,
+    AddcatComponent,
+    EditcatComponent,
+    OneComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +56,7 @@ import { SingleComponent } from './products/single/single.component';
     AccordionModule.forRoot(),
     AlertModule,
     HttpClientModule,
-  
+    DataTablesModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: UserInterceptor, multi: true}

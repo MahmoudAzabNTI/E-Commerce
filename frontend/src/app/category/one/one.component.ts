@@ -1,23 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/service/data.service';
 import { Subject } from 'rxjs';
-
-
 @Component({
-  selector: 'app-allproduct',
-  templateUrl: './allproduct.component.html',
-  styleUrls: ['./allproduct.component.scss']
+  selector: 'app-one',
+  templateUrl: './one.component.html',
+  styleUrls: ['./one.component.scss']
 })
-export class AllproductComponent implements OnInit {
-  allproducts:any[]=[]
+export class OneComponent implements OnInit {
+  mydata:any []=[]
+  finish:any []=[]
+  
   dtOptions: DataTables.Settings = {};
   
   dtTrigger: Subject<any> = new Subject<any>();
-  constructor(private _products:DataService) { 
-    _products.getallProduct().subscribe(
-      (data)=>{console.log(data),this.allproducts=data[0].data,
-        this.dtTrigger.next();},
-
+  constructor(private _single:DataService,private _active:ActivatedRoute) { 
+    
+    _single.getProductincat(_active.snapshot.params.id).subscribe(
+      (data)=>{console.log(data),this.mydata.push(data),
+        this.finish=this.mydata[0][0].data,
+        this.dtTrigger.next();}
+        
+      
     )
   }
 
@@ -32,16 +36,16 @@ export class AllproductComponent implements OnInit {
   }
   delet(mydata:any,index:number){
     console.log(mydata._id)
-    this._products.deleteProduct(mydata._id).subscribe(
+    this._single.deleteProduct(mydata._id).subscribe(
       (data)=>{console.log(data)}
     )
     console.log(mydata)
-    this.allproducts.splice(index,1)
+    this.finish.splice(index,1)
    
   }
   edit(mydata:any){
     console.log(mydata._id)
     
   }
- 
+
 }

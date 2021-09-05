@@ -19,4 +19,25 @@ export class DataService {
   getSingleData(mydata:any):Observable<any>{
     return this._http.get('http://localhost:3000/showOne/'+mydata)
   }
+  editproduct(id:any,mydata:any):Observable<any>{
+    return this._http.post('http://localhost:3000/editProduct/'+id,mydata)
+  }
+  addcat(mydata:any){
+    return this._http.post('http://localhost:3000/addCategory',mydata)
+  }
+  getallCatogery(){
+    return this._http.get('http://localhost:3000/show')
+  }
+  deleteCatogery(id:any){
+    return this._http.delete('http://localhost:3000/deleteCategory/'+id)
+  }
+  getoneCotagery(id:any){
+    return this._http.get('http://localhost:3000/showOneCategory/'+id)
+  }
+  editCatogery(id:any,mydata:any){
+    return this._http.post('http://localhost:3000/editCategory/'+id,mydata)
+  }
+  getProductincat(id:any){
+    return this._http.get('http://localhost:3000/productsInCategory/'+id)
+  }
 }
